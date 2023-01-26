@@ -15,8 +15,24 @@
 <body>
     <div class="container">
         <p>Qr Code Generator</p>
-        <input type="text" placeholder="input text or url">
-        <button>Generate Qr Code</button>
+        <input type="text" placeholder="input text or url" id="qrText">
+
+        <div id="img-box">
+            <img src="" id="qrImg">
+        </div>
+        <button onclick="QrCodeGenerator()">Generate Qr Code</button>
     </div>
+
+
+    <script>
+        let ImgBox = document.getElementById('img-box');
+        let qrImg = document.getElementById('qrImg');
+        let qrText = document.getElementById('qrText');
+
+        function QrCodeGenerator(){
+            qrImg.src= 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + qrText.value;
+
+        }
+    </script>
 </body>
 </html>
